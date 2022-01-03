@@ -20,7 +20,7 @@ const App = {
 
         const itemTextAlignOptions = ['left', 'center', 'right'];
 
-        const numItems = 8;
+        const numItems = Math.pow(10, 1);
 
         //https://www.w3schools.com/charsets/ref_emoji.asp
         const foodAndNatureCodePoints = range(0x1F32D, 0x1F374);
