@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Baby Scroll</title>
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <div id="app" v-cloak class="">
+        <!-- <div>
+            <button @click='prepend'>Prepend</button> <span>Items: {{ items.length }}</span>
+        </div> -->
+        <div>
+            <div v-for='item in items' ref='items'
+            class='item'
+            :class="{ endMarker: item.isEndMarker }">
+                {{ item.text }}
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="app.js"></script>
+
+</html>
