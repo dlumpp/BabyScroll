@@ -1,6 +1,6 @@
 const App = {
     data() {
-        let numItems = 6;
+        let numItems = 8;
         let endMarkerIndex = Math.floor(numItems * .75);
 
         let texts = Array.from({ length: numItems }).fill(String.fromCodePoint(0x1F34E));
@@ -66,7 +66,9 @@ const App = {
         }
     },
     created() {
-        window.addEventListener("scroll", this.handleScroll);
+        window.addEventListener("scroll", () => {
+            window.requestAnimationFrame(this.handleScroll);
+        });
     },
     mounted() {
         // this.observer = new IntersectionObserver(entries => {
