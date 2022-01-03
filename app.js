@@ -5,18 +5,20 @@ const App = {
             return Array.from({ length: end - start + 1 }, (_, i) => start + i)
         }
 
-        function chooseAtRandom(arr){
+        function chooseAtRandom(arr) {
             const randIndex = Math.floor(Math.random() * arr.length);
             return arr[randIndex];
         }
 
-        function chooseManyAtRandom(arr, num){
+        function chooseManyAtRandom(arr, num) {
             let choices = [];
             for (let index = 0; index < num; index++) {
-                choices.push(chooseAtRandom(arr));                
-            }  
-            return choices;  
+                choices.push(chooseAtRandom(arr));
+            }
+            return choices;
         }
+
+        const itemTextAlignOptions = ['left', 'center', 'right'];
 
         const numItems = 8;
 
@@ -24,11 +26,10 @@ const App = {
         const foodAndNatureCodePoints = range(0x1F32D, 0x1F374);
         const codePoints = chooseManyAtRandom(foodAndNatureCodePoints, numItems);
 
-        let rootItems = codePoints.map((ele) => (
-            {
-                text: String.fromCodePoint(ele)
-            }
-        ));
+        let rootItems = codePoints.map((ele) => ({
+            text: String.fromCodePoint(ele),
+            textAlign: chooseAtRandom(itemTextAlignOptions)
+        }));
 
         return {
             items: rootItems
@@ -56,14 +57,14 @@ const App = {
             startItemEle.scrollIntoView();
         }
     },
-    created() {       
-         window.addEventListener("scroll", () => {
-             window.requestAnimationFrame(this.handleScroll);
-         });
+    created() {
+        window.addEventListener("scroll", () => {
+            window.requestAnimationFrame(this.handleScroll);
+        });
     },
     mounted() {
 
-        this.$nextTick(function () {
+        this.$nextTick(function() {
             this.cloneItems();
             setTimeout(() => {
                 //doesn't work wo setTimeout. not sure why. https://stackoverflow.com/a/55488834/6753705

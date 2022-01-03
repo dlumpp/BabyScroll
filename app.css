@@ -1,11 +1,11 @@
 [v-cloak] {
     display: none;
-  }
+}
 
-  html {
+html {
     overflow-anchor: none;
-  }
+}
 
 .item {
-    font-size: 26vw;
+    font-size: 20vw;
 }

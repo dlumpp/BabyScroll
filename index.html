@@ -11,9 +11,10 @@
 <body>
     <div id="app" v-cloak class="">
         <div>
-            <div v-for='item in items' ref='items'
-            class='item'
-            :class="{ endMarker: item.isEndMarker }">
+            <div v-for='item in items' ref='items' 
+            class='item' 
+            :class="{ endMarker: item.isEndMarker }" 
+            :style="{ textAlign: item.textAlign }">
                 {{ item.text }}
             </div>
         </div>
