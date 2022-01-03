@@ -1,13 +1,32 @@
 const App = {
     data() {
-        let numItems = 8;
-        let endMarkerIndex = Math.floor(numItems * .75);
 
-        let texts = Array.from({ length: numItems }).fill(String.fromCodePoint(0x1F34E));
-        let rootItems = texts.map((ele, i) => (
+        function range(start, end) {
+            return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+        }
+
+        function chooseAtRandom(arr){
+            const randIndex = Math.floor(Math.random() * arr.length);
+            return arr[randIndex];
+        }
+
+        function chooseManyAtRandom(arr, num){
+            let choices = [];
+            for (let index = 0; index < num; index++) {
+                choices.push(chooseAtRandom(arr));                
+            }  
+            return choices;  
+        }
+
+        const numItems = 8;
+
+        //https://www.w3schools.com/charsets/ref_emoji.asp
+        const foodAndNatureCodePoints = range(0x1F32D, 0x1F374);
+        const codePoints = chooseManyAtRandom(foodAndNatureCodePoints, numItems);
+
+        let rootItems = codePoints.map((ele) => (
             {
-                text: ele,
-                isEndMarker: i === endMarkerIndex
+                text: String.fromCodePoint(ele)
             }
         ));
 
@@ -37,10 +56,10 @@ const App = {
             startItemEle.scrollIntoView();
         }
     },
-    created() {
-        window.addEventListener("scroll", () => {
-            window.requestAnimationFrame(this.handleScroll);
-        });
+    created() {       
+         window.addEventListener("scroll", () => {
+             window.requestAnimationFrame(this.handleScroll);
+         });
     },
     mounted() {
 
