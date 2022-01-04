@@ -24,7 +24,13 @@ const App = {
 
         //https://www.w3schools.com/charsets/ref_emoji.asp
         const foodAndNatureCodePoints = range(0x1F32D, 0x1F374);
-        const codePoints = chooseManyAtRandom(foodAndNatureCodePoints, numItems);
+        const sportsAndLeisureCodePoints = range(0x1F39F,0x1F3D6);
+        const animalCodePoints = range(0x1F400, 0x1F43F);
+        const toolsCodePoints = range(0x1F526, 0x1F52E);
+        const apparelCodePoints = range(0x1F451, 0x1F462);
+        const transportationCodePoints = range(0x1F680, 0x1F6A6);
+        const codePointPool = foodAndNatureCodePoints.concat(sportsAndLeisureCodePoints, animalCodePoints, toolsCodePoints, apparelCodePoints, transportationCodePoints);
+        const codePoints = chooseManyAtRandom(codePointPool, numItems);
 
         let rootItems = codePoints.map((ele) => ({
             text: String.fromCodePoint(ele),
