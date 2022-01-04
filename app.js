@@ -20,7 +20,7 @@ const App = {
 
         const itemTextAlignOptions = ['left', 'center', 'right'];
 
-        const numItems = Math.pow(10, 1);
+        const numItems = Math.pow(10, 3);
 
         //https://www.w3schools.com/charsets/ref_emoji.asp
         const foodAndNatureCodePoints = range(0x1F32D, 0x1F374);
@@ -50,7 +50,7 @@ const App = {
         },
         handleScroll() {
             let rootEle = this.getScrollingElement();
-            const shiftThreshhold = .8; // % of scroll height where we lay more track
+            const shiftThreshhold = .9; // % of scroll height where we loop back
             const topLimit = rootEle.scrollHeight * (1 - shiftThreshhold);
             const bottomLimit = rootEle.scrollHeight * shiftThreshhold;
             if (rootEle.scrollTop > bottomLimit || rootEle.scrollTop < topLimit) {
