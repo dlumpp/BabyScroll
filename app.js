@@ -45,8 +45,9 @@ const App = {
         handleScroll() {
             let rootEle = this.getScrollingElement();
             const shiftThreshhold = .8; // % of scroll height where we lay more track
-            const numToShift = this.items.length / 2;
-            if (rootEle.scrollTop > (rootEle.scrollHeight * shiftThreshhold)) {
+            const topLimit = rootEle.scrollHeight * (1 - shiftThreshhold);
+            const bottomLimit = rootEle.scrollHeight * shiftThreshhold;
+            if (rootEle.scrollTop > bottomLimit || rootEle.scrollTop < topLimit) {
                 this.scrollToStart();
             }
         },
