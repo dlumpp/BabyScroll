@@ -2,10 +2,18 @@
     display: none;
 }
 
-html {
-    overflow-anchor: none;
+body {
+    padding: 0 3rem 0 3rem;
+    background-color: #424242;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .item {
     font-size: 20vw;
+    text-shadow: 0 .2rem whitesmoke, .2rem 0 whitesmoke, -.2rem 0 whitesmoke, 0 -.2rem whitesmoke;
 }
