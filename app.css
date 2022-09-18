@@ -18,6 +18,6 @@ body::-webkit-scrollbar {
 }
 
 .item {
-    font-size: 20vw;
+    font-size: 18vw;
     text-shadow: 0 .2rem whitesmoke, .2rem 0 whitesmoke, -.2rem 0 whitesmoke, 0 -.2rem whitesmoke;
 }
